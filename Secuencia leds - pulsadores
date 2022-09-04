@@ -1,0 +1,214 @@
+from machine import Pin as pin
+from utime import sleep, sleep_ms as pausam
+led1=pin(13,pin.OUT)
+led2=pin(12,pin.OUT)
+led3=pin(14,pin.OUT)
+led4=pin(27,pin.OUT)
+led5=pin(26,pin.OUT)
+led6=pin(25,pin.OUT)
+led7=pin(33,pin.OUT)
+led8=pin(32,pin.OUT)
+amarillo=pin(15,pin.IN)
+verde=pin(4,pin.IN)
+azul=pin(16,pin.IN)
+negro=pin(18,pin.IN)
+rojo=pin(19,pin.IN)
+tiempo=150
+pausa = 0.5
+todos=[led1,led2,led3,led4,led5,led6,led7,led8]
+
+def codigo1():
+    led1.value(1)
+    sleep(pausa)
+    led1.value(0)
+    sleep(pausa)
+    led2.value(1)
+    sleep(pausa)
+    led2.value(0)
+    sleep(pausa)
+    led3.value(1)
+    sleep(pausa)
+    led3.value(0)
+    sleep(pausa)
+    led4.value(1)
+    sleep(pausa)
+    led4.value(0)
+    sleep(pausa)
+    led5.value(1)
+    sleep(pausa)
+    led5.value(0)
+    sleep(pausa)
+    led6.value(1)
+    sleep(pausa)
+    led6.value(0)
+    sleep(pausa)
+    led7.value(1)
+    sleep(pausa)
+    led7.value(0)
+    sleep(pausa)
+    led8.value(1)
+    sleep(pausa)
+    led8.value(0)
+    sleep(pausa)
+
+def print_led(a,b,c,d,e,f,g,h):
+        led1.value(a) 
+        led2.value(b)
+        led3.value(c)
+        led4.value(d)
+        led5.value(e)
+        led6.value(f)
+        led7.value(g)
+        led8.value(h)
+        pausam(350)
+      
+def codigo2():               
+    print_led(1,1,0,0,0,0,0,0)
+    print_led(0,0,1,1,0,0,0,0)
+    print_led(0,0,0,0,1,1,0,0)
+    print_led(0,0,0,0,0,0,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(0,0,0,0,0,0,1,1)
+    print_led(0,0,0,0,1,1,0,0)
+    print_led(0,0,1,1,0,0,0,0)
+    print_led(1,1,0,0,0,0,0,0)
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(1,0,0,0,0,0,0,0)
+    print_led(0,1,0,0,0,0,0,0)
+    print_led(0,0,1,0,0,0,0,0)
+    print_led(0,0,0,1,0,0,0,0)
+    print_led(0,0,0,0,1,0,0,0)
+    print_led(0,0,0,0,0,1,0,0)
+    print_led(0,0,0,0,0,0,1,0)
+    print_led(0,0,0,0,0,0,0,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+
+def codigo2_1():
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,0,0,0,0)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,0,0,0,0)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,0,0,0,0)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(0,0,0,0,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(0,0,0,0,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(0,0,0,0,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+
+def codigo2_2():
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,1,1,1,1)                  
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,1,1,1,1,1,1,1)
+    print_led(0,0,0,0,0,0,0,0)
+    print_led(1,0,1,0,1,0,1,0)
+    print_led(0,1,0,1,0,1,0,1)
+    print_led(1,1,0,1,1,0,1,1)
+    print_led(0,1,1,0,1,1,0,0)
+    print_led(0,0,0,0,0,0,0,0)
+def codigo3():
+    for elemento in todos:
+        elemento.value(1)
+        pausam(100)
+        elemento.value(0)
+        pausam(50)
+    for elemento in reversed(todos):
+        elemento.value(1)
+        pausam(50)
+        elemento.value(0)
+        pausam(50)
+def codigo4():
+    for i in todos:
+        for j in range (4):
+            i.value(not i.value())
+            pausam(150)
+    for i in reversed(todos):
+        for j in range (4):
+            i.value(not i.value())
+            pausam(150)
+
+while True:
+#Una opción 
+    pausam(50)
+    if (amarillo.value() and not azul.value() and not verde.value() and not negro.value()):
+        print("Uno")
+        codigo1()
+    if (verde.value() and not azul.value() and not amarillo.value() and not negro.value()):
+        print("Dos")
+        codigo2()
+    if (azul.value() and not verde.value() and not amarillo.value() and not negro.value()):
+        print("Tres")
+        codigo3()
+    if (negro.value() and not verde.value() and not amarillo.value() and not azul.value()):
+        print("Cuatro")
+        codigo4()
+    if (rojo.value()):    
+        pausa = pausa + 10
+        pausam(100)
+    if (rojo.value() and negro.value()):
+        pausa = pausa - 10
+        pausam(100)
+          
+#2 botones 
+    if (amarillo.value() and verde.value() and not azul.value() and not negro.value()):
+        print("Cinco")
+        codigo1()
+        codigo2()
+    if (amarillo.value() and azul.value()and not verde.value() and not negro.value()):
+        print("Seis")
+        codigo1()
+        codigo3()
+    if (amarillo.value() and negro.value()and not azul.value() and not verde.value()):
+        print("Siete")
+        codigo1()
+        codigo4()
+    if (verde.value() and azul.value()and not amarillo.value() and not negro.value()):
+        print("Ocho")
+        codigo2()
+        codigo3()
+    if (verde.value() and negro.value()and not amarillo.value() and not azul.value()):
+        print("Nueve")
+        codigo2()
+        codigo4()
+    if (azul.value() and negro.value()and not verde.value() and not amarillo.value()):
+        print("Diez")
+        codigo3()
+        codigo4()
+#3 botones 
+    if (amarillo.value() and verde.value() and azul.value() and not negro.value()):
+        print("Once")
+        codigo2_1()
+    if (amarillo.value() and azul.value() and negro.value() and not verde.value()):
+        print("Doce")
+        codigo2_2()
+    if (verde.value() and azul.value() and negro.value() and not amarillo.value()):
+        print("Trece")
+        codigo2_1()
+        codigo2_2()
+    if (verde.value() and amarillo.value() and negro.value() and not azul.value()):
+         print("Catorce")
+         codigo2()
+         codigo2_1()
+         codigo2_2()   
+#4 botones
+    if (verde.value() and amarillo.value() and negro.value() and azul.value()):
+        codigo1()
+        codigo2()
+        codigo3()
+        codigo4()
+            
