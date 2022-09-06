@@ -1,5 +1,5 @@
 from machine import Pin as pin
-from utime import sleep, sleep_ms as pausam
+from utime import sleep, sleep_ms as pausa
 led1=pin(13,pin.OUT)
 led2=pin(12,pin.OUT)
 led3=pin(14,pin.OUT)
@@ -13,8 +13,7 @@ verde=pin(4,pin.IN)
 azul=pin(16,pin.IN)
 negro=pin(18,pin.IN)
 rojo=pin(19,pin.IN)
-tiempo=150
-pausa = 0.5
+pausa = 0.4
 todos=[led1,led2,led3,led4,led5,led6,led7,led8]
 
 def codigo1():
@@ -60,7 +59,7 @@ def print_led(a,b,c,d,e,f,g,h):
         led6.value(f)
         led7.value(g)
         led8.value(h)
-        pausam(350)
+        sleep(pausa)
       
 def codigo2():               
     print_led(1,1,0,0,0,0,0,0)
@@ -124,27 +123,27 @@ def codigo2_2():
 def codigo3():
     for elemento in todos:
         elemento.value(1)
-        pausam(100)
+        pausa(100)
         elemento.value(0)
-        pausam(50)
+        pausa(50)
     for elemento in reversed(todos):
         elemento.value(1)
-        pausam(50)
+        pausa(50)
         elemento.value(0)
-        pausam(50)
+        pausa(50)
 def codigo4():
     for i in todos:
         for j in range (4):
             i.value(not i.value())
-            pausam(150)
+            pausa(150)
     for i in reversed(todos):
         for j in range (4):
             i.value(not i.value())
-            pausam(150)
+            pausa(150)
 
 while True:
 #Una opción 
-    pausam(50)
+
     if (amarillo.value() and not azul.value() and not verde.value() and not negro.value()):
         print("Uno")
         codigo1()
@@ -157,13 +156,12 @@ while True:
     if (negro.value() and not verde.value() and not amarillo.value() and not azul.value()):
         print("Cuatro")
         codigo4()
-    if (rojo.value()):    
-        pausa = pausa + 10
-        pausam(100)
+    if (rojo.value()):  
+        print("Aumenta")  
+        pausa = pausa - 0.1       
     if (rojo.value() and negro.value()):
-        pausa = pausa - 10
-        pausam(100)
-          
+        print("Disminuye")
+        pausa = pausa + 0.2
 #2 botones 
     if (amarillo.value() and verde.value() and not azul.value() and not negro.value()):
         print("Cinco")
@@ -189,7 +187,7 @@ while True:
         print("Diez")
         codigo3()
         codigo4()
-#3 botones 
+ #3 botones 
     if (amarillo.value() and verde.value() and azul.value() and not negro.value()):
         print("Once")
         codigo2_1()
@@ -205,10 +203,9 @@ while True:
          codigo2()
          codigo2_1()
          codigo2_2()   
-#4 botones
+ #4 botones
     if (verde.value() and amarillo.value() and negro.value() and azul.value()):
         codigo1()
         codigo2()
         codigo3()
         codigo4()
-            
