@@ -1,0 +1,128 @@
+1. Tabla #1
+
+from machine import Pin as pin 
+from utime import sleep 
+
+led = pin(15,pin.OUT)
+botonA = pin(21,pin.IN)
+botonB = pin(22,pin.IN)
+pausa = 0.1
+
+def prende():
+  print("prende")
+  led.value(1)
+  sleep(pausa)
+  led.value(0)
+def apaga():
+  print("apaga")
+  led.value(0)
+
+menu = int(input("OPCIONES DE SECUENCIA \n ------------------------------- \n 1. A and B \n 2. NOT B \n 3. NOT A \n 4. NOT (A and B)"))
+
+while menu != 0:
+  if menu==1:
+   if (botonA.value() and botonB.value()):
+    prende()
+
+  elif menu==2:
+   if (botonA.value() and not botonB.value()):
+    prende()
+    if (botonB.value()):
+     apaga()
+    
+  elif menu==3:
+   if (not botonA.value() and botonB.value()):
+    prende()
+    if (botonA.value()):
+     apaga()
+    
+  elif menu==4:
+   if not(botonA.value() and botonB.value()):
+    prende() 
+    if (botonA.value()):
+     apaga()
+     
+2. Tabla #2
+from machine import Pin as pin 
+from utime import sleep 
+
+led = pin(15,pin.OUT)
+botonA = pin(21,pin.IN)
+botonB = pin(22,pin.IN)
+botonC = pin(23,pin.IN)
+pausa = 0.1
+
+def prende():
+  print("1")
+  led.value(1)
+  sleep(pausa)
+  led.value(0)
+def apaga():
+  print("0")
+  led.value(0)
+
+menu2 = int(input("OPCIONES DE SECUENCIA \n ------------------------------ \n 1. A and C \n 2. B and C \n 3. A or C \n 4. B or C \n 5. NOT A and C"))
+
+while menu2 != 0:
+
+  if menu2 ==1:
+   if (botonA.value() and botonC.value()):
+    prende() 
+  
+  elif menu2 ==2:
+   if (botonB.value() and botonC.value()):
+    prende()
+  
+  elif menu2 ==3:
+   if (botonA.value() or botonC.value()):
+    prende()
+    
+  elif menu2 ==4:
+   if (botonB.value() or botonC.value()):
+    prende() 
+
+  elif menu2 ==5                         :
+   if not(botonA.value() and botonC.value()):
+    prende()
+3. Tabla #3
+from machine import Pin as pin 
+from utime import sleep
+
+led = pin(15,pin.OUT)
+botonA = pin(21,pin.IN)
+botonB = pin(22,pin.IN)
+botonC = pin(23,pin.IN)
+botonD = pin(19,pin.IN)
+pausa = 0.1
+
+def prende():
+  print("1")
+  led.value(1)
+  sleep(pausa)
+  led.value(0)
+def apaga():
+  print("0")
+  led.value(0)
+
+menu3 = int(input("OPCIONES DE SECUENCIA \n ------------------------------- \n 1. (A or B) OR (C or D) \n 2. (A and B)and(C and D) \n 3. NOT(A or B) OR (C or D) \n 4. NOT ((A or B) and NOT (C and NOT D)) \n -------------------------------------->"))
+while menu3 != 0:
+
+  if menu3 ==1:
+   if ((botonA.value() or botonB.value()) or (botonC.value() or botonD.value())):
+    prende()
+    if (botonA.value() or botonB.value()):
+     prende()
+     if (botonC.value() or botonD.value()):
+      prende()
+
+  elif menu3 ==2:
+   if ((botonA.value() and botonB.value()) and (botonC.value() and botonD.value())):
+    prende()
+
+  elif menu3 ==3:
+   if not(botonA.value() or botonB.value()) or (botonC.value()or botonD.value()):
+    prende()
+ 
+  elif menu3 ==4:
+   if not(botonA.value() or botonB.value() and not (botonC.value() and not botonD.value())):
+    prende()
