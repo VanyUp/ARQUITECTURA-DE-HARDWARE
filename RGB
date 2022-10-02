@@ -1,0 +1,22 @@
+from machine import Pin, ADC, PWM
+from utime import sleep_ms
+
+def mapear (valor_sensor, minimo_entrada, maximo_entrada, minimo_salida, maximo_salida):
+    valor_mapeado = (valor_sensor - minimo_entrada) * (maximo_salida - minimo_salida) / (maximo_entrada - minimo_entrada) + minimo_salida
+    return valor_mapeado
+
+
+bombilloA = PWM(Pin(18), 1000)
+bombilloB = PWM(Pin(22), 1000)
+bombilloC = PWM(Pin(23), 1000)
+potA = ADC(Pin(35))
+potB = ADC(Pin(32))
+potC = ADC(Pin(33))
+
+def luz():
+ while True:
+    print(f"rojo:{potA.read()}\t verde:{potB.read()}\t azul:{potC.read()}")
+    bombilloA.duty_u16(potA.read()*16)
+    bombilloB.duty_u16(potB.read()*16)
+    bombilloC.duty_u16(potC.read()*16)
+    sleep_ms(300)
