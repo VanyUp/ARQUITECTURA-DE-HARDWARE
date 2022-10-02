@@ -1,0 +1,34 @@
+import utime 
+import esp32
+from machine import Pin, PWM
+rojo=PWM (Pin(18),1000)
+verde = PWM(Pin(22), 1000) 
+azul=PWM (Pin(23),1000)
+
+tiempo=0.5
+def mapear (valor_sensor, minimo_entrada, maximo_entrada, minimo_salida, maximo_salida):
+    valor_mapeado = (valor_sensor - minimo_entrada) * (maximo_salida - minimo_salida) / (maximo_entrada - minimo_entrada) + minimo_salida
+    return valor_mapeado
+def rgb (r, v, a): #controlar RGB
+    rojo.duty(r)
+    verde.duty(v)
+    azul.duty(a)
+    
+while True:
+    print("Efecto Hall:")
+    print(esp32.hall_sensor())
+    utime.sleep(tiempo)
+    
+    if esp32.hall_sensor() < 0 :
+      rgb(0, 0, 255) #azul
+      hall_sensor = esp32.hall_sensor()*-1
+      azul.duty(hall_sensor)
+      print("azul", hall_sensor)
+      utime.sleep(tiempo)
+
+    if esp32.hall_sensor() > 0:
+       rgb(255, 0, 0) #rojo
+       rojo.duty_u16(esp32.hall_sensor()*16)
+       print("rojo", esp32.hall_sensor)
+       utime.sleep(tiempo)
+  
