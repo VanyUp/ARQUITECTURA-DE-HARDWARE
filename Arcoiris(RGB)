@@ -1,0 +1,48 @@
+from machine import Pin, PWM, ADC
+from utime import sleep_ms, sleep
+rojo = PWM(Pin(18)) #rojo
+verde = PWM(Pin(22)) #verde
+azul = PWM(Pin(23)) #azul
+
+def rgb (r, v, a): #controlar RGB
+    rojo.duty(r)
+    verde.duty(v)
+    azul.duty(a)
+
+def recorrido(): #Cambio de color
+    for i in range (255):
+      rgb (i, 0 , 0)
+      print(i)
+      sleep_ms(10)
+    for i in range (255):
+      rgb (0, i , 0)
+      print(i)
+      sleep_ms(10)
+    for i in range (255):
+      rgb (0, 0 , i)
+      print(i)
+      sleep_ms(10)    
+def arcoiris(tiempo):
+    rgb(255, 0, 0) #rojo
+    sleep(tiempo)
+    rgb(255, 127, 0) #Naranja
+    sleep(tiempo)
+    rgb(255, 255, 0) #Amarillo
+    sleep(tiempo)
+    rgb(0, 255, 0) #verde
+    sleep(tiempo)
+    rgb(0, 0, 255) #azul
+    sleep(tiempo)
+    rgb(75, 0, 130) #azul cielo
+    sleep(tiempo)
+    rgb(148, 0, 211) #Morado uwu
+    sleep(tiempo)
+
+while True:
+   recorrido()
+   rgb(0,0,0)
+   sleep(1)
+   rgb(255,255,255)
+   sleep(1)
+   rgb(0,0,0)
+   arcoiris(0.5)
