@@ -9,9 +9,9 @@ def mapear (valor_sensor, minimo_entrada, maximo_entrada, minimo_salida, maximo_
 bombilloA = PWM(Pin(18), 1000)
 bombilloB = PWM(Pin(22), 1000)
 bombilloC = PWM(Pin(23), 1000)
-potA = ADC(Pin(35))
-potB = ADC(Pin(32))
-potC = ADC(Pin(33))
+potA = ADC(Pin(33)) 
+potB = ADC(Pin(26))
+potC = ADC(Pin(25))
 
 def luz():
  while True:
