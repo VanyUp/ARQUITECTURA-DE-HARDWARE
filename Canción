@@ -1,0 +1,219 @@
+from machine import Pin, PWM
+import utime
+rojo = PWM(Pin(18)) #rojo
+verde = PWM(Pin(22)) #verde
+azul = PWM(Pin(23)) #azul
+botonM = (Pin(4,Pin.IN))
+ 
+buzzer = PWM(Pin(15))
+notas1 = {"Sol":496, "do":523,"re":587,"mi":659,"fa":698,"sol":392,"la":440,"si":493, "Do":530, "Re":622}
+ln1 = [notas1['sol'], notas1['sol'], notas1['la'], notas1['sol'] ]
+ln2 = [notas1['do'], notas1['si']]
+ln3 = [notas1['re'], notas1['do']]
+ln4 = [notas1['sol'], notas1['sol'], notas1['Sol']]
+ln5 = [notas1['mi'], notas1['do'], notas1['si']]
+ln6 = [notas1['la']] 
+ln7 = [notas1['fa'], notas1['fa'], notas1['mi']]
+ln8 = [notas1['do'], notas1['re'], notas1['do']] 
+def rgb (r, v, a): #controlar RGB
+    rojo.duty(r)
+    verde.duty(v)
+    azul.duty(a)
+
+
+def music():
+
+  for i in range(2):
+    for i in ln1:
+        buzzer.freq(i)
+        utime.sleep_ms(290)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(255, 0, 0) #rojo
+        rgb(250, 120, 0) #Naranja        
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+    
+    for i in ln2:
+        buzzer.freq(i)
+        utime.sleep_ms(300)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(0, 100, 100) #Amarillo
+        rgb(0, 255, 0) #verde       
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+
+    for i in ln1:
+        buzzer.freq(i)
+        utime.sleep_ms(290)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(0, 0, 255) #azul
+        rgb(75, 0, 130) #azul cielo
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+
+    for i in ln3:
+        buzzer.freq(i)
+        utime.sleep_ms(300)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(148, 0, 211) #Morado uwu
+        rgb(255, 0, 0) #rojo
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+    for i in ln4:
+        buzzer.freq(i)
+        utime.sleep_ms(250)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(255, 127, 0) #Naranja  
+        rgb(0, 255, 255) #Amarillo
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+    for i in ln5:
+        buzzer.freq(i)
+        utime.sleep_ms(220)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(0, 255, 0) #verde  
+        rgb(0, 0, 255) #azul
+    buzzer.freq(20000)
+    utime.sleep_ms(500)    
+
+    for i in ln6:
+        buzzer.freq(i)
+        utime.sleep_ms(250)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(75, 0, 130) #azul cielo
+        rgb(148, 0, 211) #Morado uwu
+    buzzer.freq(20000)
+    utime.sleep_ms(500) 
+
+    for i in ln7:
+        buzzer.freq(i)
+        utime.sleep_ms(220)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(255, 0, 0) #rojo
+        rgb(250, 120, 0) #Naranja          
+    buzzer.freq(20000)
+    utime.sleep_ms(500)    
+
+    for i in ln8:
+        buzzer.freq(i)
+        utime.sleep_ms(290)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(0, 255, 255) #Amarillo
+        rgb(0, 255, 0) #verde   
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+     
+    for i in ln1:
+        buzzer.freq(i)
+        utime.sleep_ms(290)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(0, 0, 255) #azul
+        rgb(75, 0, 130) #azul cielo    
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+    
+    for i in ln2:
+        buzzer.freq(i)
+        utime.sleep_ms(300)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(148, 0, 211) #Morado uwu
+        rgb(255, 0, 0) #rojo        
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+
+    for i in ln1:
+        buzzer.freq(i)
+        utime.sleep_ms(290)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(255, 127, 0) #Naranja  
+        rgb(0, 255, 255) #Amarillo
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+
+    for i in ln3:
+        buzzer.freq(i)
+        utime.sleep_ms(300)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(0, 255, 0) #verde  
+        rgb(0, 0, 255) #azul
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+    for i in ln4:
+        buzzer.freq(i)
+        utime.sleep_ms(250)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(75, 0, 130) #azul cielo
+        rgb(148, 0, 211) #Morado uwu
+    buzzer.freq(20000)
+    utime.sleep_ms(500)
+
+    for i in ln5:
+        buzzer.freq(i)
+        utime.sleep_ms(220)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(148, 0, 211) #Morado uwu
+        rgb(255, 0, 0) #rojo    
+    buzzer.freq(20000)
+    utime.sleep_ms(500)    
+
+    for i in ln6:
+        buzzer.freq(i)
+        utime.sleep_ms(250)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(255, 127, 0) #Naranja  
+        rgb(0, 255, 255) #Amarillo
+    buzzer.freq(20000)
+    utime.sleep_ms(500) 
+
+    for i in ln7:
+        buzzer.freq(i)
+        utime.sleep_ms(220)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(0, 255, 0) #verde  
+        rgb(0, 0, 255) #azul
+    buzzer.freq(20000)
+    utime.sleep_ms(500)    
+
+    for i in ln8:
+        buzzer.freq(i)
+        utime.sleep_ms(290)
+        buzzer.freq(20000)
+        utime.sleep(0.09)
+        rgb(75, 0, 130) #azul cielo
+        rgb(148, 0, 211) #Morado uwu
+    buzzer.freq(20000)
+    utime.sleep_ms(500) 
+
+
+
+while True:
+
+   if (botonM.value()):
+      print("uwu")
+      music()
+     
+      
