@@ -1,0 +1,30 @@
+import esp32
+from machine import TouchPad, Pin, PWM, ADC
+from utime import sleep ,sleep_ms
+tacto_rojo = TouchPad(Pin(12))
+tacto_verde = TouchPad(Pin(14))
+tacto_azul = TouchPad(Pin(13))
+rojo=PWM (Pin(18),1000)
+azul=PWM (Pin(22),1000)
+verde=PWM (Pin(23),1000)
+tiempo=0.2
+def mapear (valor_sensor, minimo_entrada, maximo_entrada, minimo_salida, maximo_salida):
+    valor_mapeado = (valor_sensor - minimo_entrada) * (maximo_salida - minimo_salida) / (maximo_entrada - minimo_entrada) + minimo_salida
+    return valor_mapeado
+
+
+def secuencia():
+  valorr=tacto_rojo.read()
+  rojo.duty_u16(tacto_rojo.read()*16)
+  print("rojo", valorr)
+  sleep(tiempo)
+  valorv=tacto_verde.read()
+  verde.duty_u16(tacto_verde.read()*16)
+  sleep(tiempo)
+  print("verde", valorv)
+  valora=tacto_azul.read()
+  azul.duty_u16(tacto_azul.read()*16)
+  sleep(tiempo)
+  print("azul", valora)
+while True:
+ secuencia()
